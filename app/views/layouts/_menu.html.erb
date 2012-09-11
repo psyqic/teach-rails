@@ -1,0 +1,43 @@
+<div id="menu">
+  <ul class="menu_list">
+    <li><%= link_to 'Home', :controller => 'studio' %></li>
+    <li><%= link_to 'Projects', :controller => 'projects' %></li>
+    <li><%= link_to 'Submissions', :controller => 'submissions' %> </li>
+    <li><%= link_to 'Users', :controller => 'users' %> </li>
+    <li><%= link_to 'Attendance', :controller => 'attendances' %> </li>
+  </ul>
+</div>
+<% if session[:user_id] %>
+  <%  if controller.controller_name == 'studio' %>
+  <div id="sub_menu">
+    <ul class="menu_list">
+      <li><%= link_to 'Submit Assignment', :controller => 'submissions', :action => 'new' %>  </li>
+      <li><%= link_to "Change Password", :controller => 'users', :action => 'edit', :id => session[:user_id] %></li>
+    </ul>
+  </div>
+ <% elsif controller.controller_name == 'projects' %>
+  <div id="sub_menu">
+    <ul class="menu_list">
+      <li><%= link_to 'New Project', :controller => 'projects', :action => 'new' %>  </li>
+      <li><%= link_to 'List Projects', :controller => 'projects', :action => 'index' %>  </li>
+    </ul>
+  </div>
+ <% elsif controller.controller_name == 'submissions' %>
+  <div id="sub_menu">
+    <ul class="menu_list">
+      <li><%= link_to 'Submit Assignment', :controller => 'submissions', :action => 'new' %>  </li>
+    </ul>
+  </div>
+ <% elsif controller.controller_name == 'attendances' %>
+  <div id="sub_menu">
+    <ul class="menu_list">
+      <li><%= link_to 'Take Attendance', :controller => 'attendances', :action => 'new' %>  </li>
+      <li><%= link_to 'View Attendance', :controller => 'attendances', :action => 'index' %>  </li>
+    </ul>
+  </div>
+  <% end %>
+<% end %>
+</p>
+
+
+

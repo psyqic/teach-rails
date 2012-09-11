@@ -1,0 +1,43 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+       "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en" lang="en">
+  <%= render :partial => '/layouts/head' %>
+  <body onload="sh_highlightDocument();">
+    <%= render :partial => '/layouts/header' %>
+    <%= render :partial => '/layouts/menu' %>
+    <div id="columns">
+      <div id="main">
+        <% if flash[:notice] %>
+          <div id="flash_notice">
+            <%= flash[:notice] %>
+          </div>
+        <% end %>
+        <%= yield %>
+      </div>
+      <div id="right_banner">
+        <!-- div class="list">
+          <h4> People </h4>
+          <b>With Most Bonuses:</b><br />
+          <% @people_with_most_bonuses.each do |u| %>
+            <%= link_to "#{u.account_name} (#{u.bonus_score})", :controller => 'users', :action => 'show', :id => u %> <br /> 
+          <% end %>
+        </div -->
+        <b>Recently Submitted:</b><br />
+        <% @most_recent.each do |s| %>
+        <%= link_to "#{s.user.account_name} (#{s.submission_datetime.to_s[0,10]})", :controller => 'submissions', :action => 'show', :id => s %> <br /> 
+        <% end %>
+        <br />
+        <b>Most Liked:</b><br />
+        <% @most_liked.each do |s| %>
+        <%= link_to "#{s.user.account_name} (#{s.thumbs.size})", :controller => 'submissions', :action => 'show', :id => s %> <br /> 
+        <% end %>
+        <br />
+        <b>Most Commented:</b><br />
+        <% @most_commented.each do |s| %>
+        <%= link_to "#{s.user.account_name} (#{s.comments.size})", :controller => 'submissions', :action => 'show', :id => s %> <br /> 
+        <% end %>
+      </div> 
+    </div>
+  </body>
+</html>

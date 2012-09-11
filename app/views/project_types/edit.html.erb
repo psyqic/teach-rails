@@ -1,0 +1,23 @@
+<h1>Editing project_type</h1>
+
+<%= form_for(@project_type) do |f| %>
+
+  <p>
+    <%= f.label :name %><br />
+    <%= f.text_field :name %>
+  </p>
+  <p>
+    <%= f.label :file_extension %><br />
+    <%= f.text_field :file_extension %>
+  </p>
+  <p>
+    <%= f.label :description %><br />
+    <%= f.text_field :description %>
+  </p>
+  <p>
+    <%= f.submit 'Update' %>
+  </p>
+<% end %>
+
+<%= link_to 'Show', @project_type %> |
+<%= link_to 'Back', project_types_path %>

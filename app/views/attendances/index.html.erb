@@ -1,0 +1,31 @@
+<h1>View Attendance</h1>
+
+<table>
+  <tr>
+    <th>Date</th>
+    <th>Attenance</th>
+  </tr>
+
+<% @attendances.each do |attendance| %>
+  <tr>
+    <td><%=h attendance.date %></td>
+    <td><%=h attendance.users.size %></td>
+    <td><%= link_to 'Show', attendance %></td>
+    <td><%= link_to 'Destroy', attendance, :confirm => 'Are you sure?', :method => :delete %></td>
+  </tr>
+<% end %>
+</table>
+<h1>By Users</h1>
+<table>
+  <tr>
+    <th>Name</th>
+    <th>Attendances</th>
+  </tr>
+  <% @users.each do |user| %>
+    <tr>
+      <td><%= user.account_name %> </td> 
+      <td><%= user.attendances.size %></td>
+    </tr>
+  <% end %>
+</table>
+<br />

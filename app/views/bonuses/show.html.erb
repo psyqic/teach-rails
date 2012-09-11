@@ -1,0 +1,18 @@
+<p>
+  <b>Project:</b>
+  <%=h @bonuse.project.title %>
+</p>
+
+<p>
+  <b>User:</b>
+  <%=h @bonuse.user.account_name %>
+</p>
+
+<p>
+  <b>Score:</b>
+  <%=h @bonuse.score %>
+</p>
+
+
+<%= link_to 'Edit', edit_bonuse_path(@bonuse) %> |
+<%= link_to 'Back', bonuses_path %>

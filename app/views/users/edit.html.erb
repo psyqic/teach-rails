@@ -1,0 +1,33 @@
+<h1>Editing user</h1>
+
+<%= form_for(@user) do |f| %>
+
+  <p>
+    <%= f.label :account_name %><br />
+    <%= f.text_field :account_name %>
+  </p>
+  <p>
+    <%= f.label :password %><br />
+    <%= f.text_field :password %>
+  </p>
+  <p>
+    <%= f.label :first_name %><br />
+    <%= f.text_field :first_name %>
+  </p>
+  <p>
+    <%= f.label :last_name %><br />
+    <%= f.text_field :last_name %>
+  </p>
+  <% if false %>
+  <p>
+    <%= f.label :role %><br />
+    <%= f.select(:role, %w{ Student Instructor }) %>
+  </p>
+  <% end %>
+  <p>
+    <%= f.submit 'Update' %>
+  </p>
+<% end %>
+
+<%= link_to 'Show', @user %> |
+<%= link_to 'Back', users_path %>

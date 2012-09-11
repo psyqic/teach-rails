@@ -1,0 +1,255 @@
+/* For Popup */
+
+a { text-decoration: none; }
+a:active  { color: #000; }
+a:link    { color: #666; }
+a:visited { color: #666; }
+a:hover   { color: #aaa; }
+
+div.popup_item{
+	position : relative;
+	z-index : 10;	
+	background : #fff url('/images/closer.gif') no-repeat top right;
+	border-bottom : 2px solid #bbb;
+	border-right : 1px solid #ccc;
+	width : 200px   ;
+	padding : 0px 30px 30px 10px;
+	margin-top : 0em;
+}
+
+img {
+  border-style: none;
+}
+
+/* Global styles */
+
+h1 {
+        font:  150% sans-serif;
+        color: #444;
+/*        border-bottom: 3px dotted #77d; */
+}
+
+body { background-color: #fff; color: #333; }
+
+table {
+  vertical-align: top;
+  padding: 0px;
+}
+
+
+table.studio 
+{
+  margin-top: 1em;
+  width: 100%;
+}
+
+body, p, ol, ul, td {
+  font-family: verdana, arial, helveticasu, sans-serif;
+  font-size:   13px;
+  line-height: 18px;
+}
+
+th {
+   text-align: left;
+   font-weight: bold;
+}
+
+td.number {
+  text-align: right;
+}
+
+.comment_line {
+    border-bottom: 1px solid;
+}
+
+.code {  
+  width:  600px; 
+  height: 400px;
+  overflow: auto;
+  border: 1px solid #aaa;
+  padding: 10px;
+}
+
+.output {
+  width:  600px; 
+  height: 150px;
+  overflow: auto;
+  border: 1px solid #aaa;
+  padding: 10px;
+}
+
+.title {
+   background: #eee;
+   padding: 5px 5px 5px 5px;
+}
+
+#header {
+	background: #FFF;
+	padding: 20px 20px 20px 20px;
+	font: small-caps 40px/40px "Helvetica", san-serif;
+	color: #666;
+	text-align: center
+}
+
+#menu 
+{
+	background: #FAFAFA;
+	padding: 10px 10px 10px 10px;
+	border-top: 1px solid;
+	border-bottom: 1px solid;
+/*	font: 18px "Helvetica", san-serif; */
+	color: #666;
+}
+
+#sub_menu 
+{
+	background: #FAFAFA;
+	padding: 10px 10px 10px 10px;
+	border-bottom: 1px solid;
+/*	font: 18px "Helvetica", san-serif; */
+	color: #666;
+}
+
+ul.menu_list
+{
+    display: inline;
+}
+
+ul.menu_list li
+{
+    list-style: none;
+    float: left;
+    width: 150px;
+    margin: 0px;
+}
+
+#account {
+  font: 10pt "Helvetica", san-serif;
+  text-align: right;
+  padding-right: 20px;
+}
+
+#columns 
+{ 
+    display: table; 
+    width: 100%;
+    background: white;
+    padding: 10px 0px 10px 0px;
+}
+
+
+#main 
+{ 
+  display: table-cell; 
+  padding: 10px 10px 10px 10px;
+  height: 100%;
+}
+
+#right_banner 
+{
+  display: table-cell; 
+/*  border: 1px solid black; */
+  background: #fafafa;
+  padding: 10px; 
+  width: 240px;
+  color: #444;
+  height: 100%;
+}
+
+#time {
+	color: #fff;
+	font-size: small;
+	vertical-align: bottom;
+}
+
+#side a {
+	color: #bbf;
+	font-size: small;
+}
+
+#flash_notice {
+  width: auto;
+  border: 2px solid red;
+  padding: 1em;
+  margin: 2em 2em 2em 2em;
+  background-color: #f0f0f0;
+  font: bold smaller sans-serif;
+}
+
+.note {
+  width: auto;
+  border: 2px solid #99c;
+  padding: 1em;
+  margin: 10px 10px 10px 10px;
+  background-color: #f0f0f0;
+}
+
+.swt-form fieldset {
+  background: #eee;
+  height: 100%;
+}
+
+.swt-form label 
+{
+    width: 5em;
+    float: left;
+    text-align: right;
+    padding-top: 0.2em;
+    margin-right: 0.1em;
+    display: block;
+}
+
+.swt-form select, .swt-form textarea, .swt-form input {
+    margin-left: 0.5em;
+}
+
+.swt-form .submit {
+		margin-left: 4em;
+}
+
+.swt-form div {
+		margin: 0.5em 0;
+}
+
+/* The error box */
+
+.fieldWithErrors {
+  padding: 2px;
+  background-color: #EEFFEE;
+  display: inline;
+}
+
+.fieldWithErrors * {
+  background-color: red;
+}
+
+#errorExplanation {
+  width: 400px;
+  border: 2px solid red;
+  padding: 7px;
+  padding-bottom: 12px;
+  margin-bottom: 20px;
+  background-color: #f0f0f0;
+}
+
+#errorExplanation h2 {
+  text-align: left;
+  font-weight: bold;
+  padding: 5px 5px 5px 15px;
+  font-size: 12px;
+  margin: -7px;
+  background-color: #c00;
+  color: #fff;
+}
+
+#errorExplanation p {
+  color: #333;
+  margin-bottom: 0;
+  padding: 5px;
+}
+
+#errorExplanation ul li {
+  font-size: 12px;
+  list-style: square;
+}
+

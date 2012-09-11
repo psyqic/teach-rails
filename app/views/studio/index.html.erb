@@ -1,0 +1,38 @@
+<h1>Recent Lab Assignments</h1>
+  <table class="studio">
+    <% @most_recent_projects.each do |project| %>
+    <tr>
+      <th colspan="2" class="title"><%= project.title %></th>
+    </tr>
+    <tr>
+      <th>Description:</th>
+      <td><%= project.description %></td>
+    </tr>
+    <tr>
+      <th>Due:</th>
+      <td><%= project.due %></td>
+    </tr>
+    <tr>
+      <th>Currently Sumitted:</th>
+      <td><%= project.submissions.size %></td>
+    </tr>
+  <tr>
+    <td><br/></td>
+  </tr>
+  <tr>
+    <td colspan="2">
+      <table width='100%'>
+	<tr>
+	  <th>ID</th>
+	  <th>Project</th>
+	  <th>Version</th>
+	  <th>Aurthor</th>
+	  <th>Submitted on</th>
+	</tr>
+	<%= render :partial => "shared/submission", :collection => project.submissions %>
+      </table>
+    </td>
+  </tr>
+  <% end %>
+  </table>
+

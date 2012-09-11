@@ -1,0 +1,53 @@
+<h1>Account Name: <%=h @user.account_name %></h1>
+
+<p>
+  <b>First name:</b>
+  <%=h @user.first_name %>
+</p>
+
+<p>
+  <b>Last name:</b>
+  <%=h @user.last_name %>
+</p>
+
+<p>
+  <b>Role: </b>
+  <%=h @user.role %>
+</p>
+<p>
+  <b>Attendance: </b>
+  <%=h @user.attendances.size %>
+</p>
+
+<table class="studio">
+<tr>
+    <th>ID</th>
+    <th>Project</th>
+		<th>Version</th>
+    <th>Submitted on</th>
+    <th>Liked</th>
+    <th>Comments</th>
+		<th>Bonus</th>
+</tr>
+<% @user.submissions.each do |submission| %>
+<tr>
+  <td>
+	  <%= link_to "#{submission.id}", :controller => 'submissions', :action => 'show', :id => submission.id %> 
+  </td>
+  <td>
+		<%= link_to submission.project.title[0..20] + "...", :controller => "projects", :action => "show", :id => submission.project %>
+	</td>
+  <td align="right"><%=h submission.version %></td>
+  </td>
+  <td><%=h submission.submission_datetime.to_s[0..19] %></td>
+  <td align="right"><%= submission.thumbs.size %></td>
+  <td align="right"><%= submission.comments.size %></td>
+  <td align="right"><%= submission.bonus_score %></td>
+  <td nowrap="true" align="right"><% submission.bonus_score.times { %> <%= image_tag 'bonus_20.jpg'  %>  <% } %> </td>
+
+</tr>
+<% end %>
+</table>
+
+<%= link_to 'Edit', edit_user_path(@user) %> |
+<%= link_to 'Back', users_path %>

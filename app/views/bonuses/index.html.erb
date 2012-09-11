@@ -1,0 +1,24 @@
+<h1>Listing bonuses</h1>
+
+<table>
+  <tr>
+    <th>Project</th>
+    <th>User</th>
+    <th>Score</th>
+  </tr>
+
+<% @bonuses.each do |bonuse| %>
+  <tr>
+    <td><%=h bonuse.project_id %></td>
+    <td><%=h bonuse.user_id %></td>
+    <td><%=h bonuse.score %></td>
+    <td><%= link_to 'Show', bonuse %></td>
+    <td><%= link_to 'Edit', edit_bonuse_path(bonuse) %></td>
+    <td><%= link_to 'Destroy', bonuse, :confirm => 'Are you sure?', :method => :delete %></td>
+  </tr>
+<% end %>
+</table>
+
+<br />
+
+<%= link_to 'New bonuse', new_bonuse_path %>

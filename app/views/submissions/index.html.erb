@@ -1,0 +1,21 @@
+<h1>Current Submissions</h1>
+<table>
+    <tr>
+    <th>ID</th>
+    <th>Project</th>
+    <th>Verion</th>
+    <th>Aurthor</th>
+    <th>Submitted on</th>
+<!--
+    <th>Liked</th>
+    <th>Comments</th>
+-->
+    <th>Bonus</th>
+  </tr>
+  <%= render :partial => "shared/submission", :collection => @submissions %>
+</table>
+<br />
+
+<%= link_to 'Submit Lab Assignment', new_submission_path %>
+
+

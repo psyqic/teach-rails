@@ -1,0 +1,31 @@
+<h1>Users</h1>
+<table class="studio">
+  <tr>
+    <th>ID</th>
+    <th>Account name</th>
+    <th>First name</th>
+    <th>Last name</th>
+    <th>Role</th>
+  </tr>
+
+<% @users.each do |user| %>
+  <tr>
+    <td><%= link_to user.id, :action => 'show', :id => user %></td>
+    <td><%= link_to user.account_name, :action => 'show', :id => user %></td>
+    <td><%= user.first_name %></td>
+    <td><%= user.last_name %></td>
+    <td><%= user.role %></td>
+    <td><%= link_to 'Show', user %></td>
+    <% if false %>
+    <td><%= link_to 'Edit', edit_user_path(user) %></td>
+    <td><%= link_to 'Destroy', user, :confirm => 'Are you sure?', :method => :delete %></td>
+    <% end %>
+  </tr>
+<% end %>
+</table>
+
+<br />
+
+<% if false # some how this is not working! %>
+<%= link_to 'New user', new_user_path %>
+<% end %>

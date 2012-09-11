@@ -1,0 +1,19 @@
+<h1>Editing thumb</h1>
+
+<%= form_for(@thumb) do |f| %>
+
+  <p>
+    <%= f.label :user_id %><br />
+    <%= f.text_field :user_id %>
+  </p>
+  <p>
+    <%= f.label :submission_id %><br />
+    <%= f.text_field :submission_id %>
+  </p>
+  <p>
+    <%= f.submit 'Update' %>
+  </p>
+<% end %>
+
+<%= link_to 'Show', @thumb %> |
+<%= link_to 'Back', thumbs_path %>

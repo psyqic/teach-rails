@@ -1,0 +1,23 @@
+<p>
+  <b>Text:</b>
+  <%=h @comment.text %>
+</p>
+
+<p>
+  <b>User:</b>
+  <%=h @comment.user_id %>
+</p>
+
+<p>
+  <b>Submission:</b>
+  <%=h @comment.submission_id %>
+</p>
+
+<p>
+  <b>Sequence:</b>
+  <%=h @comment.sequence %>
+</p>
+
+
+<%= link_to 'Edit', edit_comment_path(@comment) %> |
+<%= link_to 'Back', comments_path %>

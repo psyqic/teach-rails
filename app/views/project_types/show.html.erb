@@ -1,0 +1,18 @@
+<p>
+  <b>Name:</b>
+  <%=h @project_type.name %>
+</p>
+
+<p>
+  <b>File extension:</b>
+  <%=h @project_type.file_extension %>
+</p>
+
+<p>
+  <b>Description:</b>
+  <%=h @project_type.description %>
+</p>
+
+
+<%= link_to 'Edit', edit_project_type_path(@project_type) %> |
+<%= link_to 'Back', project_types_path %>

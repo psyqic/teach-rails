@@ -1,0 +1,22 @@
+<h1>Listing thumbs</h1>
+
+<table>
+  <tr>
+    <th>User</th>
+    <th>Submission</th>
+  </tr>
+
+<% @thumbs.each do |thumb| %>
+  <tr>
+    <td><%=h thumb.user_id %></td>
+    <td><%=h thumb.submission_id %></td>
+    <td><%= link_to 'Show', thumb %></td>
+    <td><%= link_to 'Edit', edit_thumb_path(thumb) %></td>
+    <td><%= link_to 'Destroy', thumb, :confirm => 'Are you sure?', :method => :delete %></td>
+  </tr>
+<% end %>
+</table>
+
+<br />
+
+<%= link_to 'New thumb', new_thumb_path %>

@@ -1,0 +1,27 @@
+<h1>Editing project</h1>
+
+<%= form_for(@project) do |f| %>
+
+  <p>
+    <%= f.label :title %><br />
+    <%= f.text_field :title %>
+  </p>
+  <p>
+    <%= f.label :description %><br />
+    <%= f.text_field :description %>
+  </p>
+  <p>
+    <%= f.label :due %><br />
+    <%= f.date_select :due %>
+  </p>
+  <p>
+    <%= f.label :project_type_id %><br />
+  	<% @project_types = ProjectType.find(:all).map {|pt| [pt.name, pt.id]} %>
+		<%= f.select(:project_type_id, @project_types) %>
+  </p>
+  <p>
+    <%= f.submit 'Update' %>
+  </p>
+<% end %>
+
+<%= link_to 'Show', @project %> | <%= link_to 'Back', projects_path %>

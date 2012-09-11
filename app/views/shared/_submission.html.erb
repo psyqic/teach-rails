@@ -1,0 +1,28 @@
+<tr>
+  <td>
+  <%= link_to "#{submission.id}", 
+	:controller => 'submissions', :action => 'show', :id => submission.id %> 
+  </td>
+  <td>
+    <%= link_to submission.project.title[0..20] + "...", 
+				:controller => 'projects', :action => 'show', :id => submission.project %>
+	</td>
+  <td><%=h submission.version %></td>
+  <td>
+    <%= link_to "#{submission.user.account_name}", :controller => 'users', :action => 'show', :id => submission.user.id %> 
+  </td>
+  <% if submission.submission_datetime > submission.project.due %> 
+	<td> <font color='red'> <%=h submission.submission_datetime.to_s[0..9] %></font></td>
+	<% else %>
+	<td> <%=h submission.submission_datetime.to_s[0..9] %></td>
+	<% end %>
+  <!-- 
+  <td><%=h submission.thumbs.size %></td>
+  <td align="right"><%=h submission.comments.size %></td>
+  <td align="right"><%=h submission.bonus_score %></td>
+  -->
+  <td nowrap="true" align="right"><% submission.bonus_score.times { %> <%= image_tag 'bonus_20.jpg' %> <% } %> </td>
+  <td>    <%= link_to "Show",
+	      :controller => 'submissions', :action => 'show', :id => submission.id %> </td>
+
+</tr>

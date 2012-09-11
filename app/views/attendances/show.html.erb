@@ -1,0 +1,18 @@
+<table>
+  <tr>
+    <th>User:</th>
+    <td><%=h @attendance.user.first_name + " " + @attendance.user.last_name %></td>
+  </tr>
+  <tr>
+    <th>Date:</th>
+    <td><%=h @attendance.date.to_s %></td>
+  </tr>
+  <tr>
+    <th>Attendees (<%=h @attendance.users.size %>):</th>
+    <td>
+      <% @attendance.users.each do | user | %>
+        <%=h user.first_name + " " + user.last_name %> <br />
+      <% end %>
+    </td>
+  </tr>
+</table>

@@ -1,0 +1,31 @@
+<h1>Editing submission</h1>
+
+<%= form_for(@submission) do |f| %>
+
+
+  <p>
+    <%= f.label :project_id %><br />
+  	<%= @projects = Project.find_all.map {|p| [p.title, p.id]} 
+				f.select(:project_id, @projects) %>
+
+  </p>
+  <p>
+    <%= f.label :code %><br />
+    <%= f.text_area :code %>
+  </p>
+  <p>
+    Upload your file: <%= f.file_field("uploaded_file") %><br/>
+  </p>
+  <p>
+    Sumission Date: <%= @submission.submission_datetime.to_s %> 
+  </p>
+  <p>
+    Submitted by: <%= @submission.user.account_name %>
+  </p>
+  <p>
+    <%= f.submit 'Update' %>
+  </p>
+<% end %>
+
+<%= link_to 'Show', @submission %> |
+<%= link_to 'Back', submissions_path %>

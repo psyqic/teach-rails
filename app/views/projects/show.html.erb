@@ -1,0 +1,39 @@
+<table class="studio">
+  <tr>
+    <th>Title:</th>
+    <td><%=h @project.title %></td>
+  </tr>
+  <tr>
+    <th>Description:</th>
+    <td><%=h @project.description %></td>
+  </tr>
+  <tr>
+    <th>Type:</th>
+    <td><%=h @project.project_type.name %></td>
+  </tr>
+  <tr>
+    <th>Due:</th>
+    <td><%=h @project.due %></td>
+  </tr>
+  <tr>
+    <th>Currently Submitted:</th>
+    <td><%= @project.submissions.size %></td>
+  </tr>
+  <tr>
+  </tr>
+  <tr> <td></td> </tr>
+  <tr>
+    <td colspan="2">
+      <table>
+	<tr>
+	  <th>ID</th>
+	  <th>Project</th>
+	  <th>Version</th>
+	  <th>Aurthor</th>
+	  <th>Submitted on</th>
+	</tr>
+	<%= render :partial => "shared/submission", :collection => @project.submissions %>
+      </table>
+    </td>
+  </tr>
+</table>

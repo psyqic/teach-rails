@@ -1,0 +1,19 @@
+<head>
+  <meta http-equiv="content-type" content="text/html;charset=UTF-8" />
+  <title><%= controller.action_name %></title>
+  <%= stylesheet_link_tag 'swt' %>
+  <%= stylesheet_link_tag 'sh_style' %>
+  <%= stylesheet_link_tag 'http://ajax.googleapis.com/ajax/libs/jqueryui/1.8/themes/base/jquery-ui.css' %>
+  <%= javascript_include_tag "sh_main" %>
+  <%= javascript_include_tag "sh_ruby" %>
+  <%= javascript_include_tag "http://ajax.googleapis.com/ajax/libs/jquery/1.4.2/jquery.min.js" %>
+  <%= javascript_include_tag "http://ajax.googleapis.com/ajax/libs/jqueryui/1.8/jquery-ui.min.js" %>
+
+    <script type="text/javascript">
+      $(document).ready(function(){
+        $("#liker_list").dialog({autoOpen: false, 
+                                 position: [200, 250],
+                                 title: "People who liked this:"});
+      });
+    </script>
+</head>

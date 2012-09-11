@@ -1,0 +1,41 @@
+<h1>New submission</h1>
+
+<%= form_for(:submission,
+	          :url => { :action => 'create' },
+            :html => { :multipart => true } ) do |f| %>
+  <% if @submission.errors.any? %>
+    <div id="error_explanation">
+      <h2><%= pluralize(@submission.errors.count, "error") %> prohibited this submission from being saved:</h2>
+
+      <ul>
+      <% @submission.errors.full_messages.each do |msg| %>
+        <li><%= msg %></li>
+      <% end %>
+      </ul>
+    </div>
+  <% end %>
+
+  <p>
+    <%= f.label :project_id %><br />
+		<%= @projects = Project.find_all.map {|p| [p.title, p.id]} 
+				f.select(:project_id, @projects) %>
+
+  </p>
+  <p>
+    Upload your file: <%= f.file_field("uploaded_file") %><br/>
+  </p>
+  <p>
+    Sumission Date: <%= Time.now.to_s(:db) %> 
+    <%= f.hidden_field :submission_datetime, :value => Time.now.to_s(:db) %>
+  </p>
+
+  <p>
+    Submitted by: <%= session[:account_name] %> 
+    <%= f.hidden_field :user_id, :value => session[:user_id] %>
+  </p>
+  <p>
+    <%= f.submit 'Create' %>
+  </p>
+<% end %>
+
+<%= link_to 'Back', submissions_path %>

@@ -1,0 +1,18 @@
+<h1>Listing source_code_files</h1>
+
+<table>
+  <tr>
+  </tr>
+
+<% @source_code_files.each do |source_code_file| %>
+  <tr>
+    <td><%= link_to 'Show', source_code_file %></td>
+    <td><%= link_to 'Edit', edit_source_code_file_path(source_code_file) %></td>
+    <td><%= link_to 'Destroy', source_code_file, :confirm => 'Are you sure?', :method => :delete %></td>
+  </tr>
+<% end %>
+</table>
+
+<br />
+
+<%= link_to 'New source_code_file', new_source_code_file_path %>

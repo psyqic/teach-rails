@@ -1,0 +1,11 @@
+  <div id="header">
+    IST488/688 Social Web Technologies
+    <div id="account">
+      <% if session[:account_name] %>
+         <%= session[:account_name] %> |
+         <%= link_to 'logout', :controller => 'studio', :action => 'logout' %>
+      <% else %>
+      <%= link_to 'login', :controller => 'studio', :action => 'login' %>
+      <% end %>
+    </div>
+  </div>

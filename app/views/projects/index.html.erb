@@ -1,0 +1,30 @@
+<h1>Listing Projects</h1>
+
+<table class="studio">
+  <tr>
+    <th>ID</th>
+    <th>Title</th>
+    <th>Description</th>
+    <th>Due</th>
+  	<th nowrap="true">Created by</th>
+  </tr>
+
+<% @projects.each do |project| %>
+  <tr>
+    <td><%= link_to project.id, :action => 'show', :id => project %></td>
+    <td><%= link_to project.title, :action => 'show', :id => project %></td>
+    <td><%= project.description[0..20] %>...</td>
+    <td><%= project.due %></td>
+    <td><%= project.user.account_name unless project.user.nil? %></td>
+    <td><%= link_to 'Show', project %></td>
+    <% if false %>
+      <td><%= link_to 'Edit', edit_project_path(project) %></td>
+      <td><%= link_to 'Destroy', project, :confirm => 'Are you sure?', :method => :delete %></td>
+    <% end %>
+  </tr>
+<% end %>
+</table>
+
+<br />
+
+<%= link_to 'New project', new_project_path %>

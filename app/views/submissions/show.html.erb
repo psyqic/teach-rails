@@ -1,0 +1,122 @@
+<table class="studio">
+  <tr>
+    <th>Submission ID:</th>
+    <td><%= @submission.id %></td>
+  </tr>
+  <tr>
+    <th>Project:</th>
+    <td><%=h @submission.project.title %></td>
+  <tr>
+    <th>Submitted at:</th>
+    <td><%= @submission.submission_datetime.to_s[0,19] %></td>
+  </tr>
+  <tr>
+    <th>Author:</th>
+    <td><%= @submission.user.first_name + " " + @submission.user.last_name %></td>
+  </tr>
+  <tr>
+    <th>File Name:</th>
+    <td><%= @submission.file_name %></td>
+  </tr>
+  <tr>
+    <th>Version: </th>
+    <td><%= @submission.version %></td>
+  </tr>
+
+  <% user = User.find_by_id(session[:user_id]) %>
+  <% if @submission.project.project_type.id == 3 && (user.role == "Admin" || user.role = "Instructor") %>
+  <tr>
+     <th colspan="2">Code:</th>
+  </tr>
+  <tr>
+     <td colspan="2"><div class="code">
+        <pre class="sh_ruby"><%= @submission.code_shown %></pre>
+      </div></td>
+  </tr>
+  <% end %>
+  <% if @submission.project.project_type.id == 2 %>
+
+  <tr>
+    <th>Status:</th>
+    <td><%= @submission.status %>
+        <% if @submission.status == "Stopped" %> 
+          <%= link_to "[Deploy]", {:action => :deploy, :id => @submission.id }, :popup => true %>
+        <% else %>
+          <%= link_to "[Browse]", "http://localhost:#{@submission.tmp_port}", :popup => true %>
+          <%= link_to "[Stop]", {:action => :stop, :id => @submission.id } %>
+        <% end %>
+    </td>
+  </tr>
+  <% end %>
+  <tr>
+    <td colspan="2">
+      <a class="popup" onclick="javascript:$('#liker_list').dialog('open')">
+	  <%= image_tag("thumb.png", :height => "20px" ) %>               
+	  <%= pluralize(@submission.thumbs.size, "person") %> liked this.
+      </a>
+      <div id="liker_list">
+         <% @submission.thumbs.each do |thumb| %>
+           <%= thumb.user.account_name %> <br />
+         <% end %>
+      </div>
+    </td>
+  </tr>
+  <% if @submission.project.project_type.id == 1 %>
+  <tr>
+     <th colspan="2">Code:</th>
+  </tr>
+  <tr>
+     <td colspan="2"><div class="code">
+        <pre class="sh_ruby"><%= @submission.code_shown %></pre>
+      </div></td>
+  </tr>
+  <tr>
+     <th colspan="2">Output:</th>
+  </tr>
+  <tr>
+     <td colspan="2"><div class="output">
+      <pre><%= @submission.run_it %></pre>
+      </div></td>
+  </tr>
+  <% end %>
+  <tr>
+    <td>&nbsp;</td> <td> </td>
+  </tr>
+  <tr>
+    <td colspan="2">
+      <%= link_to (image_tag("like_button.png")), {:action => 'like', :id => @submission, :user_id => session[:user_id] } %>
+      <!-- %= button_to 'like',  :controller => 'thumbs', :action => 'up',
+        :user_id => session[:user_id], :submission_id => @submission.id % -->
+    </td>
+  </tr>
+  <tr>
+    <td>&nbsp;</td> <td> </td>
+  </tr>
+  <tr>
+    <td colspan="2">
+      <%= form_for :comment, 
+                  :url => { :action => "post", :id => @comment } do |f| %>
+          <%= f.hidden_field :submission_id, :value => @submission.id, :size => 5 %>
+          <%= f.hidden_field :user_id, :value => session[:user_id], :size => 5 %>
+          <%= f.hidden_field :sequence, :value => @submission.comments.size, :size => 5 %>
+          <%= f.text_area :text, :value => "Your comment here...", :rows => 2 %>
+   </td>
+  </tr>
+  <tr>
+   <td colspan="2" align="right">
+          <%= f.submit 'post' %>
+      <% end %>
+    </td>
+  </tr>
+  <tr>
+     <th colspan="2"><div class="comment_line">Comments (<%= @submission.comments.size %>):</div></th>
+  </tr>
+  <% @submission.comments.sort_by{|c| c.sequence}.each do |comment| %>
+  <tr>
+    <td><%= comment.user.account_name %></td>
+    <td><%= comment.text %></td>
+  </tr>
+  <% end %>
+</table>
+<!-- <%= link_to 'Edit', edit_submission_path(@submission) %> |  -->
+<!-- <%= link_to 'Back', submissions_path %> -->
